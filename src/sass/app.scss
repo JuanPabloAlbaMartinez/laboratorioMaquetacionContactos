@@ -1,0 +1,127 @@
+@import 't';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  @include desktop {
+    flex-direction: row;
+  }
+}
+
+.search-container {
+  padding: 1rem;
+  background: #f5f5f5;
+  
+  input {
+    width: 100%;
+    padding: 0.5rem;
+  }
+
+  @include desktop {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 300px;
+  }
+}
+
+.mobile-nav {
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem;
+  background: $primary-color;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+
+  @include desktop {
+    display: none;
+  }
+}
+
+.desktop-nav {
+  display: none;
+  
+  @include desktop {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    background: $primary-color;
+    padding: 1rem;
+    height: 100vh;
+  }
+}
+
+.nav-btn {
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 0;
+  background: $secondary-color;
+  border: none;
+  color: white;
+  cursor: pointer;
+
+  &.active {
+    background: darken($secondary-color, 20%);
+  }
+}
+
+// Estilos para móvil
+.contact-card {
+  background: white;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  
+  .basic-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .full-info {
+    display: none;
+    padding-top: 1rem;
+
+    &.show {
+      display: block;
+    }
+  }
+}
+
+// Estilos para desktop
+@include desktop {
+  #content {
+    flex: 1;
+    padding: 2rem;
+  }
+
+  .contacts-table {
+    width: 100%;
+    border-collapse: collapse;
+    
+    th, td {
+      padding: 0.8rem;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    th {
+      background: $primary-color;
+      color: white;
+    }
+  }
+}

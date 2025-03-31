@@ -1,0 +1,11 @@
+// Variables
+$primary-color: #2c3e50;
+$secondary-color: #3498db;
+$breakpoint-desktop: 768px;
+
+// Mixins
+@mixin desktop {
+  @media (min-width: #{$breakpoint-desktop}) {
+    @content;
+  }
+}
